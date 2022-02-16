@@ -1,21 +1,21 @@
 {
-	"BUILD_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/agent_stub_autogen",
-	"CMAKE_BINARY_DIR" : "/home/antoine/KiloGridAggregation/simulation/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours",
+	"BUILD_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/agent_stub_autogen",
+	"CMAKE_BINARY_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation",
+	"CMAKE_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation",
 	"HEADERS" : 
 	[
 		[
-			"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours/agent.h",
+			"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours/agent.h",
 			"Mu",
 			"EWIEGA46WW/moc_agent.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/agent_stub_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/agent_stub_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/agent_stub_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/agent_stub_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"ARGOS_simulator_BUILD",
@@ -34,13 +34,13 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/antoine/KiloGridAggregation/simulation/build/behaviours",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation",
-		"/home/antoine/KiloGridAggregation/simulation/build",
+		"/home/antoine/KiloGridAggregation/Simulation/build/behaviours",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation",
+		"/home/antoine/KiloGridAggregation/Simulation/build",
 		"/usr/include/Headers",
 		"/usr/include/lua5.3",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
@@ -65,20 +65,20 @@
 		"-c",
 		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/agent_stub_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/agent_stub_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/CMakeFiles/agent_stub_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/CMakeFiles/agent_stub_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/behaviours/CMakeFiles/agent_stub_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/behaviours/CMakeFiles/agent_stub_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours/agent_stub.c",
+			"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours/agent_stub.c",
 			"Mu"
 		]
 	],

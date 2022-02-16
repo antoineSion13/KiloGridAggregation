@@ -1,21 +1,21 @@
 {
-	"BUILD_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/kilogrid_stub_autogen",
-	"CMAKE_BINARY_DIR" : "/home/antoine/KiloGridAggregation/simulation/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions",
+	"BUILD_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/kilogrid_stub_autogen",
+	"CMAKE_BINARY_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation",
+	"CMAKE_SOURCE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation",
 	"HEADERS" : 
 	[
 		[
-			"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h",
+			"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h",
 			"Mu",
 			"EWIEGA46WW/moc_kilogrid_stub.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/kilogrid_stub_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/kilogrid_stub_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/kilogrid_stub_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/kilogrid_stub_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"ARGOS_simulator_BUILD",
@@ -35,14 +35,14 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/antoine/KiloGridAggregation/simulation/build/loop_functions",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation",
-		"/home/antoine/KiloGridAggregation/simulation/build",
+		"/home/antoine/KiloGridAggregation/Simulation/build/loop_functions",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation",
+		"/home/antoine/KiloGridAggregation/Simulation/build",
 		"/usr/include/Headers",
 		"/usr/include/lua5.3",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/argos3/plugins/robot/kilobot/control_interface",
-		"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/argos3/plugins/robot/kilobot/simulator",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/argos3/plugins/robot/kilobot/control_interface",
+		"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/argos3/plugins/robot/kilobot/simulator",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
@@ -67,20 +67,20 @@
 		"-c",
 		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/kilogrid_stub_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/kilogrid_stub_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/CMakeFiles/kilogrid_stub_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/CMakeFiles/kilogrid_stub_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/home/antoine/KiloGridAggregation/simulation/build/loop_functions/CMakeFiles/kilogrid_stub_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/CMakeFiles/kilogrid_stub_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/kilogrid_stub.cpp",
+			"/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/kilogrid_stub.cpp",
 			"Mu"
 		]
 	],

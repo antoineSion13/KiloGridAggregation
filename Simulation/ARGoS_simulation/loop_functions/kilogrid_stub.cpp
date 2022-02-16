@@ -49,27 +49,27 @@ void CKilogrid::Init(TConfigurationNode &t_tree) {
 /*-----------------------------------------------------------------------------------------------*/
 void CKilogrid::Reset() {
   timeStep = 0;
-    /*
-  * When the 'reset' method is called on the kilobot controller, the
-  * kilobot state is destroyed and recreated. Thus, we need to
-  * recreate the list of controllers and debugging info from scratch
-  * as well.
-  */
-  m_tKBs.clear();
-  /* Get the map of all kilobots from the space */
-  CSpace::TMapPerType& tKBMap = GetSpace().GetEntitiesByType("kilobot");
-  /* Go through them */
-  for(CSpace::TMapPerType::iterator it = tKBMap.begin();
-    it != tKBMap.end();
-    ++it) {
-   /* Create a pointer to the current kilobot */
-   CKilobotEntity* pcKB = any_cast<CKilobotEntity*>(it->second);
-   CCI_KilobotController* pcKBC = &dynamic_cast<CCI_KilobotController&>(pcKB->GetControllableEntity().GetController());
-   /* Create debug info for controller */
-   debug_info_t* ptDebugInfo = pcKBC->DebugInfoCreate<debug_info_t>();
-   /* Append to list */
-   m_tKBs.push_back(std::make_pair(pcKBC, ptDebugInfo));
-  }
+  //   /*
+  // * When the 'reset' method is called on the kilobot controller, the
+  // * kilobot state is destroyed and recreated. Thus, we need to
+  // * recreate the list of controllers and debugging info from scratch
+  // * as well.
+  // */
+  // m_tKBs.clear();
+  // /* Get the map of all kilobots from the space */
+  // CSpace::TMapPerType& tKBMap = GetSpace().GetEntitiesByType("kilobot");
+  // /* Go through them */
+  // for(CSpace::TMapPerType::iterator it = tKBMap.begin();
+  //   it != tKBMap.end();
+  //   ++it) {
+  //  /* Create a pointer to the current kilobot */
+  //  CKilobotEntity* pcKB = any_cast<CKilobotEntity*>(it->second);
+  //  CCI_KilobotController* pcKBC = &dynamic_cast<CCI_KilobotController&>(pcKB->GetControllableEntity().GetController());
+  //  /* Create debug info for controller */
+  //  debug_info_t* ptDebugInfo = pcKBC->DebugInfoCreate<debug_info_t>();
+  //  /* Append to list */
+  //  m_tKBs.push_back(std::make_pair(pcKBC, ptDebugInfo));
+  // }
 }
 
 
@@ -87,6 +87,7 @@ void CKilogrid::Destroy() {
 /*-----------------------------------------------------------------------------------------------*/
 void CKilogrid::PreStep(){
   timeStep++;
+  LOG << "Time step : "<< timeStep<< std::endl;
     // collect all the data from the robots - and virtualize them
     virtual_message_reception();
 //NOT USED IN AGGREGATION
@@ -131,18 +132,17 @@ void CKilogrid::PreStep(){
 /* Gets called after every simulation step.                                                      */
 /*-----------------------------------------------------------------------------------------------*/
 void CKilogrid::PostStep(){
-  /* Go through the kilobots */
- for(size_t i = 0; i < m_tKBs.size(); ++i) {
-    /* Create a pointer to the kilobot state */
-    kilobot_state_t* ptState = m_tKBs[i].first->GetRobotState();
-    /* Print current state internal robot state */
-    LOG << m_tKBs[i].first->GetId() << ": "                       << std::endl
-        << "\tkilo_ticks_debug: "           << m_tKBs[i].second->kilo_ticks_debug << std::endl
-        << "\ttimer_go_straight_debug: "           << m_tKBs[i].second->timer_go_straight_debug << std::endl
-        << "\tpleave: "           << m_tKBs[i].second->pleave_debug << std::endl;
- }
+ //  /* Go through the kilobots */
+ // for(size_t i = 0; i < m_tKBs.size(); ++i) {
+ //    /* Create a pointer to the kilobot state */
+ //    kilobot_state_t* ptState = m_tKBs[i].first->GetRobotState();
+ //    /* Print current state internal robot state */
+ //    LOG << m_tKBs[i].first->GetId() << ": "                       << std::endl
+ //        << "\tkilo_ticks_debug: "           << m_tKBs[i].second->kilo_ticks_debug << std::endl
+ //        << "\ttimer_go_straight_debug: "           << m_tKBs[i].second->timer_go_straight_debug << std::endl
+ //        << "\tg_ran_debug: "           << m_tKBs[i].second->g_ran_debug << std::endl;
+ // }
 }
-
 
 /*-----------------------------------------------------------------------------------------------*/
 /* This function reads the config file for the kilogrid and saves the content to configuration.  */
@@ -325,9 +325,9 @@ UInt16 CKilogrid::GetKilobotId(CKilobotEntity& c_kilobot_entity){
 
 void CKilogrid::virtual_message_reception(){
     // get position information, later used for sending stuff!!
-    for(UInt16 it = 0; it < kilobot_entities.size(); it++) {
-        robot_positions[GetKilobotId(*kilobot_entities[it])] = position2cell(
-                GetKilobotPosition(*kilobot_entities[it]));
+    for(int it = 0; it < kilobot_entities.size(); it++)
+    {
+        robot_positions[GetKilobotId(*kilobot_entities[it])] = position2cell(GetKilobotPosition(*kilobot_entities[it]));
     }
 
 //NOT USED IN AGGREGATION, ROBOTS DO NOT SEND ANYTHING TO THE KILOGRID (EXCEPT FOR TRACKING BUT THIS IS OMITTED IN SIM)
@@ -375,32 +375,32 @@ void CKilogrid::set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn) {
         message_to_send.data[3] = m.data[3];
         message_to_send.data[4] = m.data[4];
         message_to_send.data[5] = m.data[5];
-        message_to_send.data[6] = m.data[6];  
+        message_to_send.data[6] = m.data[6];
         message_to_send.data[7] = m.data[7];
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(*current_robots[it], &message_to_send);
     }
 }
 
 
-void CKilogrid::init_CAN_message(CAN_message_t* cell_msg){
-    uint8_t d;
+// void CKilogrid::init_CAN_message(CAN_message_t* cell_msg){
+//     uint8_t d;
+//
+//     cell_msg->id = 0;
+//     cell_msg->header.rtr = 0;
+//     cell_msg->header.length = 8;
+//
+//     for(d = 0; d < 8; d++) cell_msg->data[d] = 0;
+// }
 
-    cell_msg->id = 0;
-    cell_msg->header.rtr = 0;
-    cell_msg->header.length = 8;
 
-    for(d = 0; d < 8; d++) cell_msg->data[d] = 0;
-}
-
-
-uint8_t CKilogrid::CAN_message_tx(CAN_message_t *m, kilogrid_address_t add) {
-    // this is a hack because we can only virtually set msgs
-    // TODO is this message coppied or just the pointer
-    // module_memory[add.x][add.y].received_cell_message = m;
-    module_memory[add.x][add.y].received_cell_messages.push_back(*m);
-
-    return 1;
-}
+// uint8_t CKilogrid::CAN_message_tx(CAN_message_t *m, kilogrid_address_t add) {
+//     // this is a hack because we can only virtually set msgs
+//     // TODO is this message coppied or just the pointer
+//     // module_memory[add.x][add.y].received_cell_message = m;
+//     module_memory[add.x][add.y].received_cell_messages.push_back(*m);
+//
+//     return 1;
+// }
 
 
 
@@ -455,56 +455,56 @@ void CKilogrid::loop(int x, int y){
 }
 
 
-void CKilogrid::IR_rx(int x, int y, IR_message_t *m, cell_num_t c, distance_measurement_t *d, uint8_t CRC_error) {
-    // used for debug tracking on the real kilogrid ...
-//    if(!CRC_error && m->type == TRACKING) {
-//        CAN_message_t *msg = next_CAN_message();
-//        if (msg != NULL) { // if the buffer is not full
-//            serialize_tracking_message(msg, c, m->data);
-//        }
-//    }else if(!CRC_error && m->type == VIRTUAL_ROBOT_MSG){
-    // check if msg is zero ... return no msg to send
-//    if (m == nullptr){
-//        return;
-//    }
-    if (!CRC_error && m->type == MSG_T_VIRTUAL_ROBOT_MSG) {
-          // some example usage
-//        module_memory[x][y].received_option = m->data[0];
-//        module_memory[x][y].received_com_range = m->data[1];
-//        module_memory[x][y].received_x = m->data[2];
-//        module_memory[x][y].received_y = m->data[3];
-        module_memory[x][y].msg_number_current = m->data[4];
-        if (module_memory[x][y].msg_number_current != module_memory[x][y].msg_number) {
-            // case new message
-            module_memory[x][y].msg_number = module_memory[x][y].msg_number_current;
-            // TODO implement logic ...
-        } else {
-            // message already seen -> discard
-            return;
-        }
-    }
-}
+// void CKilogrid::IR_rx(int x, int y, IR_message_t *m, cell_num_t c, distance_measurement_t *d, uint8_t CRC_error) {
+//     // used for debug tracking on the real kilogrid ...
+// //    if(!CRC_error && m->type == TRACKING) {
+// //        CAN_message_t *msg = next_CAN_message();
+// //        if (msg != NULL) { // if the buffer is not full
+// //            serialize_tracking_message(msg, c, m->data);
+// //        }
+// //    }else if(!CRC_error && m->type == VIRTUAL_ROBOT_MSG){
+//     // check if msg is zero ... return no msg to send
+// //    if (m == nullptr){
+// //        return;
+// //    }
+//     if (!CRC_error && m->type == MSG_T_VIRTUAL_ROBOT_MSG) {
+//           // some example usage
+// //        module_memory[x][y].received_option = m->data[0];
+// //        module_memory[x][y].received_com_range = m->data[1];
+// //        module_memory[x][y].received_x = m->data[2];
+// //        module_memory[x][y].received_y = m->data[3];
+//         module_memory[x][y].msg_number_current = m->data[4];
+//         if (module_memory[x][y].msg_number_current != module_memory[x][y].msg_number) {
+//             // case new message
+//             module_memory[x][y].msg_number = module_memory[x][y].msg_number_current;
+//             // TODO implement logic ...
+//         } else {
+//             // message already seen -> discard
+//             return;
+//         }
+//     }
+// }
 
-void CKilogrid::CAN_rx(int x, int y, CAN_message_t *m){
-    // example usage of this method
-    if (m->data[0] == 55){  // set msg
-        module_memory[x][y].cell_received_op[0] = m->data[1];
-        module_memory[x][y].cell_received_op[1] = m->data[2];
-        module_memory[x][y].cell_received_op[2] = m->data[3];
-        module_memory[x][y].cell_received_op[3] = m->data[4];
-        // receive_timer = m->data[5];
-        for(uint8_t cell_it_cb = 0; cell_it_cb < 4; cell_it_cb++){
-            if(module_memory[x][y].cell_received_op[cell_it_cb] != 0){
-                module_memory[x][y].reset_timer[cell_it_cb] = 0;
-            }
-        }
-    }else {
-        module_memory[x][y].cell_received_op[0] = 3;
-        module_memory[x][y].cell_received_op[1] = 3;
-        module_memory[x][y].cell_received_op[2] = 3;
-        module_memory[x][y].cell_received_op[3] = 3;
-    }
-}
+// void CKilogrid::CAN_rx(int x, int y, CAN_message_t *m){
+//     // example usage of this method
+//     if (m->data[0] == 55){  // set msg
+//         module_memory[x][y].cell_received_op[0] = m->data[1];
+//         module_memory[x][y].cell_received_op[1] = m->data[2];
+//         module_memory[x][y].cell_received_op[2] = m->data[3];
+//         module_memory[x][y].cell_received_op[3] = m->data[4];
+//         // receive_timer = m->data[5];
+//         for(uint8_t cell_it_cb = 0; cell_it_cb < 4; cell_it_cb++){
+//             if(module_memory[x][y].cell_received_op[cell_it_cb] != 0){
+//                 module_memory[x][y].reset_timer[cell_it_cb] = 0;
+//             }
+//         }
+//     }else {
+//         module_memory[x][y].cell_received_op[0] = 3;
+//         module_memory[x][y].cell_received_op[1] = 3;
+//         module_memory[x][y].cell_received_op[2] = 3;
+//         module_memory[x][y].cell_received_op[3] = 3;
+//     }
+// }
 
 
 REGISTER_LOOP_FUNCTIONS(CKilogrid, "kilogrid_loop_functions")

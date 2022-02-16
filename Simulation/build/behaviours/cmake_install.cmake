@@ -1,4 +1,4 @@
-# Install script for directory: /home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours
+# Install script for directory: /home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions
+# Install script for directory: /home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

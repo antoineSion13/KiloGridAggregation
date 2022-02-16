@@ -1,4 +1,4 @@
-# Install script for directory: /home/antoine/KiloGridAggregation/simulation/ARGoS_simulation
+# Install script for directory: /home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/antoine/KiloGridAggregation/simulation/build/behaviours/cmake_install.cmake")
-  include("/home/antoine/KiloGridAggregation/simulation/build/loop_functions/cmake_install.cmake")
+  include("/home/antoine/KiloGridAggregation/Simulation/build/behaviours/cmake_install.cmake")
+  include("/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/antoine/KiloGridAggregation/simulation/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/antoine/KiloGridAggregation/Simulation/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

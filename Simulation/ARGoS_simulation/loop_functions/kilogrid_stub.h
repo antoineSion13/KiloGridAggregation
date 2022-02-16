@@ -175,7 +175,7 @@ public:
     void loop(int x, int y);
 
     // callback from module for receiveing messages
-    void IR_rx(int x, int y, IR_message_t *m, cell_num_t c, distance_measurement_t *d, uint8_t CRC_error);
+    // void IR_rx(int x, int y, IR_message_t *m, cell_num_t c, distance_measurement_t *d, uint8_t CRC_error);
 
     // module method for setting led at certain cell
     void set_LED_with_brightness(int x, int y, cell_num_t cn, color_t color, brightness_t brightness);
@@ -184,10 +184,10 @@ public:
     void set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn);
 
     // this methods are used for sending messages between cells of the kilogrid
-    void init_CAN_message(CAN_message_t* cell_msg);
-    uint8_t CAN_message_tx(CAN_message_t *, kilogrid_address_t);
+    // void init_CAN_message(CAN_message_t* cell_msg);
+    // uint8_t CAN_message_tx(CAN_message_t *, kilogrid_address_t);
     // for message reception
-    void CAN_rx(int x, int y, CAN_message_t *m);
+    // void CAN_rx(int x, int y, CAN_message_t *m);
 
     /** TODO further functions have to be implemented here **/
 
@@ -197,7 +197,7 @@ private:
     /** utility initializations **/
     // random struct
     CRandom::CRNG* m_pcRNG;
-    distance_measurement_t *d;
+    // distance_measurement_t *d;
 
     /** configuration set up **/
     // for reading the config file
@@ -262,7 +262,7 @@ private:
     // DEBUGGING INFORMATION
     //
     // This is an efficient way to store both controllers and debug information.
-    std::vector< std::pair<CCI_KilobotController*, debug_info_t*> > m_tKBs;
+    // std::vector< std::pair<CCI_KilobotController*, debug_info_t*> > m_tKBs;
 };
 
 #endif

@@ -1,11 +1,11 @@
 #include "kilolib.h"
-#include "agent.h"
+// #include "agent.h"
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
-#include <debug.h>
+// #include <debug.h>
 
 // #include "utils.h"
 // #include "kilo_rand_lib.h"
@@ -34,6 +34,7 @@
 
 //PI
 #define PI 3.14159265359
+#define RAND_MAX_VALUE 255
 
 typedef enum{
     false = 0,
@@ -76,7 +77,8 @@ bool is_in_site()
 }
 
 double g_ran_uniform() {
-  return ((double) random() / (double) RAND_MAX);
+  // debug_info_set(g_ran_debug, ((double) rand_hard() / (double) RAND_MAX_VALUE));
+  return ((double) rand_hard() / (double) RAND_MAX_VALUE);
 }
 
 //Implementation of a Cauchy wrapped distribution
@@ -182,12 +184,10 @@ bool leave_site()
   double random_number = g_ran_uniform();
   if(random_number <= pleave)
   {
-    debug_info_set(pleave_debug, pleave);
     return true;
   }
   else
   {
-    debug_info_set(pleave_debug, pleave);
     return false;
   }
 }
@@ -206,10 +206,12 @@ message_t *message_tx()
 {
   if(broadcast_bool == true)
   {
+    set_color(RGB(1, 1, 1));
     return &msg;
   }
   else
   {
+    set_color(RGB(0, 0, 0));
     return NULL;
   }
 }
@@ -229,7 +231,6 @@ void message_rx(message_t *message, distance_measurement_t *distance)
   }
   if (message->type == 2) //type 2 for message received from the Kilobots
 	{
-    set_color(RGB(1, 0, 0));
     uint16_t id = message->data[0];
     for(int i = 0; i < buffer_size; ++i)
     {
@@ -257,13 +258,14 @@ void setup() {
   msg.data[0] = kilo_uid;
   msg.crc = message_crc(&msg);
   stop_broadcast();
+
 	move_straight();
 	timer_go_straight = kilo_ticks + go_straight_duration;
 }
 
 void loop() {
-  debug_info_set(kilo_ticks_debug, kilo_ticks);
-  debug_info_set(timer_go_straight_debug, timer_go_straight);
+  // debug_info_set(kilo_ticks_debug, kilo_ticks);
+  // debug_info_set(timer_go_straight_debug, timer_go_straight);
 	switch (state) {
 		case RANDOM_WALK:
 		if(is_in_site() && !entering_site) //Check if a robot has entered the site where he needs to stay
@@ -368,7 +370,7 @@ int main() {
   kilo_message_tx_success = message_tx_success;
 	kilo_message_rx = message_rx; // register IR reception callback
 
-  debug_info_create();
+  // debug_info_create();
 
   kilo_start(setup, loop);
 

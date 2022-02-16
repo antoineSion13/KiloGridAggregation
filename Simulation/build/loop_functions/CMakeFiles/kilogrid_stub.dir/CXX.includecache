@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_communication_actuator.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_communication_actuator.h
 argos3/core/control_interface/ci_actuator.h
 -
 argos3/plugins/robots/kilobot/control_interface/kilolib.h
@@ -16,7 +16,7 @@ argos3/core/utility/datatypes/datatypes.h
 vector
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_communication_sensor.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_communication_sensor.h
 argos3/core/control_interface/ci_sensor.h
 -
 argos3/plugins/robots/kilobot/control_interface/kilolib.h
@@ -26,7 +26,7 @@ argos3/core/utility/datatypes/datatypes.h
 vector
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_controller.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_controller.h
 argos3/core/control_interface/ci_controller.h
 -
 argos3/core/utility/math/rng.h
@@ -62,13 +62,13 @@ fcntl.h
 unistd.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_led_actuator.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_led_actuator.h
 argos3/core/control_interface/ci_actuator.h
 -
 argos3/core/utility/datatypes/color.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_light_sensor.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/ci_kilobot_light_sensor.h
 argos3/core/control_interface/ci_sensor.h
 -
 argos3/core/utility/math/angles.h
@@ -76,23 +76,23 @@ argos3/core/utility/math/angles.h
 vector
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/kilolib.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/kilolib.h
 stdint.h
 -
 message.h
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
 message_crc.h
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message_crc.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message_crc.h
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
 stdint.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message_crc.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message_crc.h
 message.h
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/control_interface/message.h
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_default_actuator.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_default_actuator.h
 string
 -
 map
@@ -104,7 +104,7 @@ argos3/plugins/robots/kilobot/control_interface/ci_kilobot_communication_actuato
 argos3/plugins/robots/kilobot/simulator/kilobot_communication_entity.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_entity.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_entity.h
 argos3/core/utility/datatypes/byte_array.h
 -
 argos3/core/utility/datatypes/set.h
@@ -120,7 +120,7 @@ argos3/core/simulator/space/positional_indices/grid.h
 argos3/plugins/robots/kilobot/control_interface/kilolib.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_medium.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_communication_medium.h
 argos3/core/utility/math/rng.h
 -
 argos3/core/simulator/medium/medium.h
@@ -130,19 +130,19 @@ argos3/core/simulator/space/positional_indices/positional_index.h
 argos3/plugins/robots/kilobot/simulator/kilobot_communication_entity.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_entity.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/argos3/plugins/robots/kilobot/simulator/kilobot_entity.h
 argos3/core/simulator/entity/composable_entity.h
 -
 argos3/plugins/simulator/entities/wheeled_entity.h
 -
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/behaviours/agent.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/behaviours/agent.h
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/kilogrid_stub.cpp
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/kilogrid_stub.cpp
 kilogrid_stub.h
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h
 
-/home/antoine/KiloGridAggregation/simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h
+/home/antoine/KiloGridAggregation/Simulation/ARGoS_simulation/loop_functions/kilogrid_stub.h
 math.h
 -
 random
@@ -194,5 +194,5 @@ argos3/plugins/robots/kilobot/control_interface/message.h
 array
 -
 
-/home/antoine/KiloGridAggregation/simulation/build/loop_functions/kilogrid_stub_autogen/mocs_compilation.cpp
+/home/antoine/KiloGridAggregation/Simulation/build/loop_functions/kilogrid_stub_autogen/mocs_compilation.cpp
 
