@@ -1,11 +1,11 @@
 #include "kilolib.h"
-// #include "agent.h"
+#include "agent.h"
 #include <stdlib.h>
 #include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <float.h>
-// #include <debug.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <float.h>
+#include <debug.h>
 
 // #include "utils.h"
 // #include "kilo_rand_lib.h"
@@ -56,7 +56,6 @@ int ground_color = GREY;
 bool obstacle = false;
 
 message_t msg; //msg to send
-int message_sent = 0;
 
 int buffer_size = 25;
 uint16_t broadcasting_robots[25] = {0};
@@ -88,15 +87,12 @@ double cauchy_wrapped()
   double gamma = 0.69314718056;
   double random_uniform_variate = g_ran_uniform();
   double without_modulo = gamma * tan(PI * random_uniform_variate - PI/2);
-  while(without_modulo > PI)
-  {
-    without_modulo -= 2*PI;
-  }
-  while(without_modulo < -PI)
-  {
-    without_modulo += 2*PI;
-  }
-  double theta = without_modulo;
+  double theta = fmod(without_modulo,2*PI);
+  if(theta > PI)
+    theta -= 2*PI;
+  else if(theta < -PI)
+    theta += 2*PI;
+  debug_info_set(theta_debug, theta);
   return theta;
 }
 
@@ -216,12 +212,6 @@ message_t *message_tx()
   }
 }
 
-void message_tx_success()
-{
-   // Set the flag on message transmission.
-   message_sent = 1;
-}
-
 void message_rx(message_t *message, distance_measurement_t *distance)
 {
 	if (message->type == 1) //type 1 for message received from the Modules
@@ -279,8 +269,6 @@ void loop() {
       {
         if(obstacle) //checking for obstacles (we only consider walls here, not the robot themselves as in argos)
         {
-					//TO TEST BUT WE MAYBE NEED A MORE EFFICIENT METHOD TO AVOID WALL, FOR NOW IT JUST TURNS UNTIL NO WALL IS DETECTED ANYMORE BUT THIS COULD BE SLOW
-					// MAYBE IMPLEMENT SMTHING TO MAKE A 1/2 TURN ON ITSELF THEN STRAIGHT WITHOUT REREADING THAT THERE IS AN OBSTACLE
             state = OBSTACLE_AVOIDANCE;
             stop();
             timer_go_straight = 0;
@@ -367,10 +355,9 @@ int main() {
   kilo_init();
 	// utils_init();
   kilo_message_tx = message_tx;
-  kilo_message_tx_success = message_tx_success;
 	kilo_message_rx = message_rx; // register IR reception callback
 
-  // debug_info_create();
+  debug_info_create();
 
   kilo_start(setup, loop);
 

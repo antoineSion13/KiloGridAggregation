@@ -41,6 +41,7 @@ typedef enum {
 /*-----------------------------------------------------------------------------------------------*/
 typedef struct {
   double g_ran_debug;
+  double theta_debug;
   uint32_t timer_go_straight_debug;
   uint32_t kilo_ticks_debug;
 } debug_info_t;

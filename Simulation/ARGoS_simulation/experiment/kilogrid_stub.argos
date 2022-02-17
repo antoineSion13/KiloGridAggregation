@@ -5,7 +5,7 @@
 <!-- * General configuration * -->
 <!-- ************************* -->
 <framework>
-<system threads="2" method="balance_quantity" />
+<system threads="2" method="balance_quantity"/>
 <experiment length="1800"
     ticks_per_second="10"
     random_seed="123" />
@@ -107,7 +107,7 @@
 <!-- * Visualization  * -->
 <!-- ****************** -->
 
-<!-- <visualization>
+<visualization>
 <qt-opengl>
         <camera>
           <placements>
@@ -121,6 +121,6 @@
           </placements>
         </camera>
     </qt-opengl>
-</visualization> -->
+</visualization>
 
 </argos-configuration>

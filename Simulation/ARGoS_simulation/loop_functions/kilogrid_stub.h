@@ -183,16 +183,6 @@ public:
     // module method to send a IR message
     void set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn);
 
-    // this methods are used for sending messages between cells of the kilogrid
-    // void init_CAN_message(CAN_message_t* cell_msg);
-    // uint8_t CAN_message_tx(CAN_message_t *, kilogrid_address_t);
-    // for message reception
-    // void CAN_rx(int x, int y, CAN_message_t *m);
-
-    /** TODO further functions have to be implemented here **/
-
-
-
 private:
     /** utility initializations **/
     // random struct
@@ -262,7 +252,7 @@ private:
     // DEBUGGING INFORMATION
     //
     // This is an efficient way to store both controllers and debug information.
-    // std::vector< std::pair<CCI_KilobotController*, debug_info_t*> > m_tKBs;
+    std::vector< std::pair<CCI_KilobotController*, debug_info_t*> > m_tKBs;
 };
 
 #endif
