@@ -40,10 +40,7 @@ typedef enum {
 /* The content of the struct is whatever you want                                                */
 /*-----------------------------------------------------------------------------------------------*/
 typedef struct {
-  double g_ran_debug;
-  double theta_debug;
-  uint32_t timer_go_straight_debug;
-  uint32_t kilo_ticks_debug;
+  int ground_color_debug;
 } debug_info_t;
 
 #ifdef __cplusplus  // If this is a C++ compiler, use C linkage

@@ -41,6 +41,8 @@ void CKilogrid::Init(TConfigurationNode &t_tree) {
 
     Reset();
 
+    outputFile.open("Results/results_non_informed.csv");
+
 }
 
 
@@ -88,7 +90,7 @@ void CKilogrid::Destroy() {
 void CKilogrid::PreStep(){
   try{
   timeStep++;
-  LOG << "Time step : "<< timeStep<< std::endl;
+  // LOG << "Time step : "<< timeStep<< std::endl;
     // collect all the data from the robots - and virtualize them
     virtual_message_reception();
 
@@ -117,16 +119,28 @@ void CKilogrid::PreStep(){
 /* Gets called after every simulation step.                                                      */
 /*-----------------------------------------------------------------------------------------------*/
 void CKilogrid::PostStep(){
+
+  outputFile<<"timeStep,numberOfRobotsOnBlackSite,numberOfRobotsOnWhiteSite"<<std::endl;
+
+  int number_black = 0;
+  int number_white = 0;
   /* Go through the kilobots */
  for(size_t i = 0; i < m_tKBs.size(); ++i) {
     /* Create a pointer to the kilobot state */
     kilobot_state_t* ptState = m_tKBs[i].first->GetRobotState();
-    /* Print current state internal robot state */
-    LOG << m_tKBs[i].first->GetId() << ": "                       << std::endl
-        // << "\tkilo_ticks_debug: "           << m_tKBs[i].second->kilo_ticks_debug << std::endl
-        // << "\ttimer_go_straight_debug: "           << m_tKBs[i].second->timer_go_straight_debug << std::endl
-        << "\ttheta: "           << m_tKBs[i].second->theta_debug << std::endl;
+    int color = m_tKBs[i].second->ground_color_debug;
+    if(color == 20)
+    {
+      number_black++;
+    }
+    else if(color == 21)
+    {
+      number_white++;
+    }
  }
+
+ outputFile<<timeStep<<","<<number_black<<","<<number_white<<std::endl;
+
 }
 
 /*-----------------------------------------------------------------------------------------------*/

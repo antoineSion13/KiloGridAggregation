@@ -13,6 +13,8 @@ namespace argos {
 
 #include <math.h>
 #include <random>
+#include <iostream>
+#include <fstream>
 
 #include <behaviours/agent.h>
 
@@ -193,6 +195,9 @@ private:
     // for reading the config file
     std::ifstream input;
     std::string config_file_name;
+
+    //to write results
+    std::ofstream outputFile;
 
     // this data structure is used to save the init data
     std::vector<uint8_t> configuration[10][20];

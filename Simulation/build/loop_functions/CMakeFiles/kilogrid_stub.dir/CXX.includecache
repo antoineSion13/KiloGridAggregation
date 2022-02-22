@@ -147,6 +147,10 @@ math.h
 -
 random
 -
+iostream
+-
+fstream
+-
 behaviours/agent.h
 -
 argos3/core/simulator/loop_functions.h

@@ -47,7 +47,7 @@ uint32_t timer_turn = 0;
 uint32_t timer_leave = 0;
 uint32_t go_straight_duration = 32*10; //Going straight for 10 seconds
 double timer_turn_coefficient = 45; //coefficient use to convert from turning angle to time turning
-uint32_t pleave_sampling_duration = 32*2; //2 seconds sampling
+uint32_t pleave_sampling_duration = 32*15; //10 seconds sampling
 int robot_type = NON_INFORMED; //DEFINE HERE THE TYPE OF ROBOT
 
 bool broadcast_bool = false;
@@ -92,7 +92,7 @@ double cauchy_wrapped()
     theta -= 2*PI;
   else if(theta < -PI)
     theta += 2*PI;
-  debug_info_set(theta_debug, theta);
+  // debug_info_set(theta_debug, theta);
   return theta;
 }
 
@@ -166,7 +166,7 @@ bool leave_site()
       n++;
     }
   }
-  double pleave = 0.5*exp(-2.25*n);
+  double pleave = 0.75*exp(-1.75*n);
   if(robot_type == INFORMED_WHITE || robot_type == INFORMED_BLACK)
   {
    pleave = 0;
@@ -218,6 +218,7 @@ void message_rx(message_t *message, distance_measurement_t *distance)
 	{
     ground_color = message->data[0];
 		obstacle = message->data[1];
+    debug_info_set(ground_color_debug, ground_color);
   }
   if (message->type == 2) //type 2 for message received from the Kilobots
 	{
@@ -330,7 +331,7 @@ void loop() {
       if(timer_turn == 0 && timer_go_straight == 0)
       {
         turn_left();
-        double time = 180 / timer_turn_coefficient;
+        double time = 120 / timer_turn_coefficient; //turn 90 degrees
         double double_time = time * 32;
         uint32_t int_time = double_time;
         timer_turn = kilo_ticks + int_time;
@@ -338,13 +339,13 @@ void loop() {
       else if(timer_turn <= kilo_ticks && timer_go_straight == 0)
       {
         timer_turn = 0;
-        move_straight();
+        move_straight(); // then go straight
         timer_go_straight = kilo_ticks + go_straight_duration;
       }
       else if(timer_go_straight <= kilo_ticks && timer_turn == 0)
       {
         timer_go_straight = kilo_ticks + go_straight_duration;
-        state = RANDOM_WALK;
+        state = RANDOM_WALK; // resume random walk: if not out, it will anyways come back into obstacle avoidance
       }
       break;
 	}
