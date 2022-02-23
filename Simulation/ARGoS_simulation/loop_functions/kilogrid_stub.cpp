@@ -317,33 +317,38 @@ CVector2 CKilogrid::GetKilobotPosition(CKilobotEntity& c_kilobot_entity){
 /*-----------------------------------------------------------------------------------------------*/
 /* Returns the id of the kilobot.                                                                */
 /*-----------------------------------------------------------------------------------------------*/
-UInt16 CKilogrid::GetKilobotId(CKilobotEntity& c_kilobot_entity){
-    std::string strKilobotID((c_kilobot_entity).GetControllableEntity().GetController().GetId());
-    return std::stoul(strKilobotID.substr(2));
-}
+// UInt16 CKilogrid::GetKilobotId(CKilobotEntity& c_kilobot_entity){
+//     std::string strKilobotID((c_kilobot_entity).GetControllableEntity().GetController().GetId());
+//     std::string newId = "";
+//     for (char c : strKilobotID)
+//       if(std::isdigit(c))
+//         newId = newId + c;
+//
+//     return std::stoul(newId);
+// }
 
 void CKilogrid::virtual_message_reception(){
     // get position information, later used for sending stuff!!
-    try{
+    // try{
       for(kilobot_entities_vector::iterator it = kilobot_entities.begin(); it != kilobot_entities.end(); it++)
       {
           // LOG << "kilobot_entities size " << kilobot_entities.size() << std::endl;
           // LOG << "robot_positions size " << robot_positions.size() << std::endl;
           CKilobotEntity *entity = *it;
-          UInt16 id = GetKilobotId(*entity);
+          // UInt16 id = GetKilobotId(*entity);
           CVector2 position = GetKilobotPosition(*entity);
           // LOG << "id used " << id << std::endl;
-          robot_positions.at(id) = position2cell(position);
+          robot_positions.at(it - kilobot_entities.begin()) = position2cell(position);
       }
-    }
-    catch(...){
-      LOG << "crashing in virtual_message_reception" << std::endl;
-    }
+    // }
+    // catch(...){
+    //   LOG << "crashing in virtual_message_reception" << std::endl;
+    // }
 }
 
 
 void CKilogrid::set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn) {
-  try{
+  // try{
       // get correct cell
       CVector2 cell_pos = module2cell(CVector2(x,y), cn);
 
@@ -353,7 +358,7 @@ void CKilogrid::set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn) {
       // LOG << "before accessing robot_positions" << std::endl;
       for(uint8_t it=0;it < kilobot_entities.size();it++)
       {
-          if(robot_positions[GetKilobotId(*kilobot_entities[it])].GetX() == cell_pos.GetX() && robot_positions[GetKilobotId(*kilobot_entities[it])].GetY() == cell_pos.GetY())
+          if(robot_positions[it].GetX() == cell_pos.GetX() && robot_positions[it].GetY() == cell_pos.GetY())
           {
               current_robots.push_back(kilobot_entities[it]);
           }
@@ -376,10 +381,10 @@ void CKilogrid::set_IR_message(int x, int y, IR_message_t &m, cell_num_t cn) {
           GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(*current_robots[it], &message_to_send);
       }
       // LOG << "after sending IR_message" << std::endl;
-    }
-    catch(...){
-      LOG << "crashing in set_IR_message" << std::endl;
-    }
+    // }
+    // catch(...){
+    //   LOG << "crashing in set_IR_message" << std::endl;
+    // }
 }
 
 /*-----------------------------------------------------------------------------------------------*/

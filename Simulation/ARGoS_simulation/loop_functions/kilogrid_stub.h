@@ -153,7 +153,7 @@ public:
     void get_kilobots_entities();
 
     CVector2 GetKilobotPosition(CKilobotEntity& c_kilobot_entity);
-    UInt16 GetKilobotId(CKilobotEntity& c_kilobot_entity);
+    // UInt16 GetKilobotId(CKilobotEntity& c_kilobot_entity);
 
     // collect data and set data
     void virtual_message_reception();

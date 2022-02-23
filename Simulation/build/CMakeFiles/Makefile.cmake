@@ -182,8 +182,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "behaviours/CMakeFiles/agent_stub.dir/DependInfo.cmake"
-  "behaviours/CMakeFiles/agent_stub_autogen.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_white.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_black.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_non_informed.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_white_autogen.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_black_autogen.dir/DependInfo.cmake"
+  "behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/DependInfo.cmake"
   "loop_functions/CMakeFiles/kilogrid_stub.dir/DependInfo.cmake"
   "loop_functions/CMakeFiles/kilogrid_stub_autogen.dir/DependInfo.cmake"
   )

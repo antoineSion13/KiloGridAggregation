@@ -1,3 +1,5 @@
 # Hashes of file build rules.
-b8f4fc53da571c9c90759497759c6b5c behaviours/CMakeFiles/agent_stub_autogen
+02c1a7643d97ad22effcf713bcfdbd19 behaviours/CMakeFiles/agent_stub_black_autogen
+a0ab7b843f29a393da82e144ae140967 behaviours/CMakeFiles/agent_stub_non_informed_autogen
+5ed63071bdecb9a7a09aead772cdd1d0 behaviours/CMakeFiles/agent_stub_white_autogen
 d42bbb94969df2083ff3db09baede911 loop_functions/CMakeFiles/kilogrid_stub_autogen

@@ -1,11 +1,25 @@
 if(ARGOS_BUILD_FOR_SIMULATOR)
   include_directories(${CMAKE_SOURCE_DIR}/argos3/plugins/robots/kilobot/control_interface)
 
-add_executable(agent_stub agent.h agent_stub.c)
+add_executable(agent_stub_non_informed agent.h agent_stub_non_informed.c)
 if(UNIX AND NOT APPLE)
-  target_link_libraries(agent_stub  argos3plugin_simulator_kilolib rt m)
+  target_link_libraries(agent_stub_non_informed  argos3plugin_simulator_kilolib rt m)
 else(UNIX AND NOT APPLE)
-  target_link_libraries(agent_stub  argos3plugin_simulator_kilolib)
+  target_link_libraries(agent_stub_non_informed  argos3plugin_simulator_kilolib)
+endif()
+
+add_executable(agent_stub_black agent.h agent_stub_black.c)
+if(UNIX AND NOT APPLE)
+  target_link_libraries(agent_stub_black  argos3plugin_simulator_kilolib rt m)
+else(UNIX AND NOT APPLE)
+  target_link_libraries(agent_stub_black  argos3plugin_simulator_kilolib)
+endif()
+
+add_executable(agent_stub_white agent.h agent_stub_white.c)
+if(UNIX AND NOT APPLE)
+  target_link_libraries(agent_stub_white  argos3plugin_simulator_kilolib rt m)
+else(UNIX AND NOT APPLE)
+  target_link_libraries(agent_stub_white  argos3plugin_simulator_kilolib)
 endif()
 
 endif(ARGOS_BUILD_FOR_SIMULATOR)

@@ -133,30 +133,82 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named agent_stub
+# Target rules for targets named agent_stub_white
 
 # Build rule for target.
-agent_stub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 agent_stub
-.PHONY : agent_stub
+agent_stub_white: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_white
+.PHONY : agent_stub_white
 
 # fast build rule for target.
-agent_stub/fast:
-	$(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/build
-.PHONY : agent_stub/fast
+agent_stub_white/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/build
+.PHONY : agent_stub_white/fast
 
 #=============================================================================
-# Target rules for targets named agent_stub_autogen
+# Target rules for targets named agent_stub_black
 
 # Build rule for target.
-agent_stub_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_autogen
-.PHONY : agent_stub_autogen
+agent_stub_black: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_black
+.PHONY : agent_stub_black
 
 # fast build rule for target.
-agent_stub_autogen/fast:
-	$(MAKE) -f behaviours/CMakeFiles/agent_stub_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_autogen.dir/build
-.PHONY : agent_stub_autogen/fast
+agent_stub_black/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/build
+.PHONY : agent_stub_black/fast
+
+#=============================================================================
+# Target rules for targets named agent_stub_non_informed
+
+# Build rule for target.
+agent_stub_non_informed: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_non_informed
+.PHONY : agent_stub_non_informed
+
+# fast build rule for target.
+agent_stub_non_informed/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/build
+.PHONY : agent_stub_non_informed/fast
+
+#=============================================================================
+# Target rules for targets named agent_stub_white_autogen
+
+# Build rule for target.
+agent_stub_white_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_white_autogen
+.PHONY : agent_stub_white_autogen
+
+# fast build rule for target.
+agent_stub_white_autogen/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_white_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_white_autogen.dir/build
+.PHONY : agent_stub_white_autogen/fast
+
+#=============================================================================
+# Target rules for targets named agent_stub_black_autogen
+
+# Build rule for target.
+agent_stub_black_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_black_autogen
+.PHONY : agent_stub_black_autogen
+
+# fast build rule for target.
+agent_stub_black_autogen/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_black_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_black_autogen.dir/build
+.PHONY : agent_stub_black_autogen/fast
+
+#=============================================================================
+# Target rules for targets named agent_stub_non_informed_autogen
+
+# Build rule for target.
+agent_stub_non_informed_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 agent_stub_non_informed_autogen
+.PHONY : agent_stub_non_informed_autogen
+
+# fast build rule for target.
+agent_stub_non_informed_autogen/fast:
+	$(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/build
+.PHONY : agent_stub_non_informed_autogen/fast
 
 #=============================================================================
 # Target rules for targets named kilogrid_stub
@@ -194,8 +246,12 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... package"
-	@echo "... agent_stub"
-	@echo "... agent_stub_autogen"
+	@echo "... agent_stub_white"
+	@echo "... agent_stub_black"
+	@echo "... agent_stub_non_informed"
+	@echo "... agent_stub_white_autogen"
+	@echo "... agent_stub_black_autogen"
+	@echo "... agent_stub_non_informed_autogen"
 	@echo "... kilogrid_stub"
 	@echo "... kilogrid_stub_autogen"
 .PHONY : help

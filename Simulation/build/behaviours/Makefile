@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/antoine/KiloGridAggregation/Simulation/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
@@ -99,6 +88,17 @@ package: preinstall
 package/fast: package
 
 .PHONY : package/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -133,88 +133,256 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-behaviours/CMakeFiles/agent_stub.dir/rule:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub.dir/rule
-.PHONY : behaviours/CMakeFiles/agent_stub.dir/rule
+behaviours/CMakeFiles/agent_stub_white.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_white.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_white.dir/rule
 
 # Convenience name for target.
-agent_stub: behaviours/CMakeFiles/agent_stub.dir/rule
+agent_stub_white: behaviours/CMakeFiles/agent_stub_white.dir/rule
 
-.PHONY : agent_stub
+.PHONY : agent_stub_white
 
 # fast build rule for target.
-agent_stub/fast:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/build
-.PHONY : agent_stub/fast
+agent_stub_white/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/build
+.PHONY : agent_stub_white/fast
 
 # Convenience name for target.
-behaviours/CMakeFiles/agent_stub_autogen.dir/rule:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_autogen.dir/rule
-.PHONY : behaviours/CMakeFiles/agent_stub_autogen.dir/rule
+behaviours/CMakeFiles/agent_stub_black.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_black.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_black.dir/rule
 
 # Convenience name for target.
-agent_stub_autogen: behaviours/CMakeFiles/agent_stub_autogen.dir/rule
+agent_stub_black: behaviours/CMakeFiles/agent_stub_black.dir/rule
 
-.PHONY : agent_stub_autogen
+.PHONY : agent_stub_black
 
 # fast build rule for target.
-agent_stub_autogen/fast:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_autogen.dir/build
-.PHONY : agent_stub_autogen/fast
+agent_stub_black/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/build
+.PHONY : agent_stub_black/fast
 
-agent_stub.o: agent_stub.c.o
+# Convenience name for target.
+behaviours/CMakeFiles/agent_stub_non_informed.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_non_informed.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_non_informed.dir/rule
 
-.PHONY : agent_stub.o
+# Convenience name for target.
+agent_stub_non_informed: behaviours/CMakeFiles/agent_stub_non_informed.dir/rule
+
+.PHONY : agent_stub_non_informed
+
+# fast build rule for target.
+agent_stub_non_informed/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/build
+.PHONY : agent_stub_non_informed/fast
+
+# Convenience name for target.
+behaviours/CMakeFiles/agent_stub_white_autogen.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_white_autogen.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_white_autogen.dir/rule
+
+# Convenience name for target.
+agent_stub_white_autogen: behaviours/CMakeFiles/agent_stub_white_autogen.dir/rule
+
+.PHONY : agent_stub_white_autogen
+
+# fast build rule for target.
+agent_stub_white_autogen/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_white_autogen.dir/build
+.PHONY : agent_stub_white_autogen/fast
+
+# Convenience name for target.
+behaviours/CMakeFiles/agent_stub_black_autogen.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_black_autogen.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_black_autogen.dir/rule
+
+# Convenience name for target.
+agent_stub_black_autogen: behaviours/CMakeFiles/agent_stub_black_autogen.dir/rule
+
+.PHONY : agent_stub_black_autogen
+
+# fast build rule for target.
+agent_stub_black_autogen/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_black_autogen.dir/build
+.PHONY : agent_stub_black_autogen/fast
+
+# Convenience name for target.
+behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/rule:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f CMakeFiles/Makefile2 behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/rule
+.PHONY : behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/rule
+
+# Convenience name for target.
+agent_stub_non_informed_autogen: behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/rule
+
+.PHONY : agent_stub_non_informed_autogen
+
+# fast build rule for target.
+agent_stub_non_informed_autogen/fast:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed_autogen.dir/build
+.PHONY : agent_stub_non_informed_autogen/fast
+
+agent_stub_black.o: agent_stub_black.c.o
+
+.PHONY : agent_stub_black.o
 
 # target to build an object file
-agent_stub.c.o:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub.c.o
-.PHONY : agent_stub.c.o
+agent_stub_black.c.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black.c.o
+.PHONY : agent_stub_black.c.o
 
-agent_stub.i: agent_stub.c.i
+agent_stub_black.i: agent_stub_black.c.i
 
-.PHONY : agent_stub.i
+.PHONY : agent_stub_black.i
 
 # target to preprocess a source file
-agent_stub.c.i:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub.c.i
-.PHONY : agent_stub.c.i
+agent_stub_black.c.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black.c.i
+.PHONY : agent_stub_black.c.i
 
-agent_stub.s: agent_stub.c.s
+agent_stub_black.s: agent_stub_black.c.s
 
-.PHONY : agent_stub.s
+.PHONY : agent_stub_black.s
 
 # target to generate assembly for a file
-agent_stub.c.s:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub.c.s
-.PHONY : agent_stub.c.s
+agent_stub_black.c.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black.c.s
+.PHONY : agent_stub_black.c.s
 
-agent_stub_autogen/mocs_compilation.o: agent_stub_autogen/mocs_compilation.cpp.o
+agent_stub_black_autogen/mocs_compilation.o: agent_stub_black_autogen/mocs_compilation.cpp.o
 
-.PHONY : agent_stub_autogen/mocs_compilation.o
+.PHONY : agent_stub_black_autogen/mocs_compilation.o
 
 # target to build an object file
-agent_stub_autogen/mocs_compilation.cpp.o:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub_autogen/mocs_compilation.cpp.o
-.PHONY : agent_stub_autogen/mocs_compilation.cpp.o
+agent_stub_black_autogen/mocs_compilation.cpp.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black_autogen/mocs_compilation.cpp.o
+.PHONY : agent_stub_black_autogen/mocs_compilation.cpp.o
 
-agent_stub_autogen/mocs_compilation.i: agent_stub_autogen/mocs_compilation.cpp.i
+agent_stub_black_autogen/mocs_compilation.i: agent_stub_black_autogen/mocs_compilation.cpp.i
 
-.PHONY : agent_stub_autogen/mocs_compilation.i
+.PHONY : agent_stub_black_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-agent_stub_autogen/mocs_compilation.cpp.i:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub_autogen/mocs_compilation.cpp.i
-.PHONY : agent_stub_autogen/mocs_compilation.cpp.i
+agent_stub_black_autogen/mocs_compilation.cpp.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black_autogen/mocs_compilation.cpp.i
+.PHONY : agent_stub_black_autogen/mocs_compilation.cpp.i
 
-agent_stub_autogen/mocs_compilation.s: agent_stub_autogen/mocs_compilation.cpp.s
+agent_stub_black_autogen/mocs_compilation.s: agent_stub_black_autogen/mocs_compilation.cpp.s
 
-.PHONY : agent_stub_autogen/mocs_compilation.s
+.PHONY : agent_stub_black_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-agent_stub_autogen/mocs_compilation.cpp.s:
-	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub.dir/build.make behaviours/CMakeFiles/agent_stub.dir/agent_stub_autogen/mocs_compilation.cpp.s
-.PHONY : agent_stub_autogen/mocs_compilation.cpp.s
+agent_stub_black_autogen/mocs_compilation.cpp.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_black.dir/build.make behaviours/CMakeFiles/agent_stub_black.dir/agent_stub_black_autogen/mocs_compilation.cpp.s
+.PHONY : agent_stub_black_autogen/mocs_compilation.cpp.s
+
+agent_stub_non_informed.o: agent_stub_non_informed.c.o
+
+.PHONY : agent_stub_non_informed.o
+
+# target to build an object file
+agent_stub_non_informed.c.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed.c.o
+.PHONY : agent_stub_non_informed.c.o
+
+agent_stub_non_informed.i: agent_stub_non_informed.c.i
+
+.PHONY : agent_stub_non_informed.i
+
+# target to preprocess a source file
+agent_stub_non_informed.c.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed.c.i
+.PHONY : agent_stub_non_informed.c.i
+
+agent_stub_non_informed.s: agent_stub_non_informed.c.s
+
+.PHONY : agent_stub_non_informed.s
+
+# target to generate assembly for a file
+agent_stub_non_informed.c.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed.c.s
+.PHONY : agent_stub_non_informed.c.s
+
+agent_stub_non_informed_autogen/mocs_compilation.o: agent_stub_non_informed_autogen/mocs_compilation.cpp.o
+
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.o
+
+# target to build an object file
+agent_stub_non_informed_autogen/mocs_compilation.cpp.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed_autogen/mocs_compilation.cpp.o
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.cpp.o
+
+agent_stub_non_informed_autogen/mocs_compilation.i: agent_stub_non_informed_autogen/mocs_compilation.cpp.i
+
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+agent_stub_non_informed_autogen/mocs_compilation.cpp.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed_autogen/mocs_compilation.cpp.i
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.cpp.i
+
+agent_stub_non_informed_autogen/mocs_compilation.s: agent_stub_non_informed_autogen/mocs_compilation.cpp.s
+
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+agent_stub_non_informed_autogen/mocs_compilation.cpp.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_non_informed.dir/build.make behaviours/CMakeFiles/agent_stub_non_informed.dir/agent_stub_non_informed_autogen/mocs_compilation.cpp.s
+.PHONY : agent_stub_non_informed_autogen/mocs_compilation.cpp.s
+
+agent_stub_white.o: agent_stub_white.c.o
+
+.PHONY : agent_stub_white.o
+
+# target to build an object file
+agent_stub_white.c.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white.c.o
+.PHONY : agent_stub_white.c.o
+
+agent_stub_white.i: agent_stub_white.c.i
+
+.PHONY : agent_stub_white.i
+
+# target to preprocess a source file
+agent_stub_white.c.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white.c.i
+.PHONY : agent_stub_white.c.i
+
+agent_stub_white.s: agent_stub_white.c.s
+
+.PHONY : agent_stub_white.s
+
+# target to generate assembly for a file
+agent_stub_white.c.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white.c.s
+.PHONY : agent_stub_white.c.s
+
+agent_stub_white_autogen/mocs_compilation.o: agent_stub_white_autogen/mocs_compilation.cpp.o
+
+.PHONY : agent_stub_white_autogen/mocs_compilation.o
+
+# target to build an object file
+agent_stub_white_autogen/mocs_compilation.cpp.o:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white_autogen/mocs_compilation.cpp.o
+.PHONY : agent_stub_white_autogen/mocs_compilation.cpp.o
+
+agent_stub_white_autogen/mocs_compilation.i: agent_stub_white_autogen/mocs_compilation.cpp.i
+
+.PHONY : agent_stub_white_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+agent_stub_white_autogen/mocs_compilation.cpp.i:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white_autogen/mocs_compilation.cpp.i
+.PHONY : agent_stub_white_autogen/mocs_compilation.cpp.i
+
+agent_stub_white_autogen/mocs_compilation.s: agent_stub_white_autogen/mocs_compilation.cpp.s
+
+.PHONY : agent_stub_white_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+agent_stub_white_autogen/mocs_compilation.cpp.s:
+	cd /home/antoine/KiloGridAggregation/Simulation/build && $(MAKE) -f behaviours/CMakeFiles/agent_stub_white.dir/build.make behaviours/CMakeFiles/agent_stub_white.dir/agent_stub_white_autogen/mocs_compilation.cpp.s
+.PHONY : agent_stub_white_autogen/mocs_compilation.cpp.s
 
 # Help Target
 help:
@@ -222,18 +390,34 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... package"
-	@echo "... agent_stub"
-	@echo "... agent_stub_autogen"
-	@echo "... agent_stub.o"
-	@echo "... agent_stub.i"
-	@echo "... agent_stub.s"
-	@echo "... agent_stub_autogen/mocs_compilation.o"
-	@echo "... agent_stub_autogen/mocs_compilation.i"
-	@echo "... agent_stub_autogen/mocs_compilation.s"
+	@echo "... agent_stub_white"
+	@echo "... edit_cache"
+	@echo "... agent_stub_black"
+	@echo "... agent_stub_non_informed"
+	@echo "... agent_stub_white_autogen"
+	@echo "... agent_stub_black_autogen"
+	@echo "... agent_stub_non_informed_autogen"
+	@echo "... agent_stub_black.o"
+	@echo "... agent_stub_black.i"
+	@echo "... agent_stub_black.s"
+	@echo "... agent_stub_black_autogen/mocs_compilation.o"
+	@echo "... agent_stub_black_autogen/mocs_compilation.i"
+	@echo "... agent_stub_black_autogen/mocs_compilation.s"
+	@echo "... agent_stub_non_informed.o"
+	@echo "... agent_stub_non_informed.i"
+	@echo "... agent_stub_non_informed.s"
+	@echo "... agent_stub_non_informed_autogen/mocs_compilation.o"
+	@echo "... agent_stub_non_informed_autogen/mocs_compilation.i"
+	@echo "... agent_stub_non_informed_autogen/mocs_compilation.s"
+	@echo "... agent_stub_white.o"
+	@echo "... agent_stub_white.i"
+	@echo "... agent_stub_white.s"
+	@echo "... agent_stub_white_autogen/mocs_compilation.o"
+	@echo "... agent_stub_white_autogen/mocs_compilation.i"
+	@echo "... agent_stub_white_autogen/mocs_compilation.s"
 .PHONY : help
 
 

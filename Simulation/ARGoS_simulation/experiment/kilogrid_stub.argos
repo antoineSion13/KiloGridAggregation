@@ -15,8 +15,7 @@
 <!-- *************** -->
 <controllers>
 
-    <kilobot_controller id="kbc">
-
+    <kilobot_controller id="kbc_ni">
     <actuators>
         <differential_steering implementation="default"
             bias_avg="0.000015"
@@ -29,7 +28,41 @@
         <kilobot_communication implementation="default" medium="kilocomm" />
     </sensors>
 
-    <params behavior="../../build/behaviours/agent_stub" />
+    <params behavior="../../build/behaviours/agent_stub_non_informed" />
+
+    </kilobot_controller>
+
+    <kilobot_controller id="kbc_b">
+    <actuators>
+        <differential_steering implementation="default"
+            bias_avg="0.000015"
+            bias_stddev="0.00186"/>
+        <kilobot_communication implementation="default" />
+        <kilobot_led implementation="default" />
+    </actuators>
+
+    <sensors>
+        <kilobot_communication implementation="default" medium="kilocomm" />
+    </sensors>
+
+    <params behavior="../../build/behaviours/agent_stub_black" />
+
+    </kilobot_controller>
+
+    <kilobot_controller id="kbc_w">
+    <actuators>
+        <differential_steering implementation="default"
+            bias_avg="0.000015"
+            bias_stddev="0.00186"/>
+        <kilobot_communication implementation="default" />
+        <kilobot_led implementation="default" />
+    </actuators>
+
+    <sensors>
+        <kilobot_communication implementation="default" medium="kilocomm" />
+    </sensors>
+
+    <params behavior="../../build/behaviours/agent_stub_white" />
 
     </kilobot_controller>
 
@@ -68,12 +101,50 @@
         <body position="0,1,0" orientation="0,0,0" />
     </box>
 
+    <box id="angle1" size="0.01,0.06,0.03"  movable="false">
+        <body position="0.02,0.02,0" orientation="45,0,0" />
+    </box>
+
+    <box id="angle2" size="0.01,0.06,0.03"  movable="false">
+        <body position="0.98,1.98,0" orientation="45,0,0" />
+    </box>
+
+    <box id="angle3" size="0.01,0.06,0.03"  movable="false">
+        <body position="0.02,1.98,0" orientation="-45,0,0" />
+    </box>
+
+    <box id="angle4" size="0.01,0.06,0.03"  movable="false">
+        <body position="0.98,0.02,0" orientation="-45,0,0" />
+    </box>
+
     <distribute>
         <position method="uniform" min="0.12,0.12,0" max="0.88,1.88,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
         <entity quantity="50" max_trials="100">
-            <kilobot id="kb">
-                <controller config="kbc"/>
+            <kilobot id="kb_ni">
+                <controller config="kbc_ni"/>
+                <dynamics2d friction="0.7" />
+            </kilobot>
+        </entity>
+    </distribute>
+
+    <distribute>
+        <position method="uniform" min="0.12,0.12,0" max="0.88,1.88,0" />
+        <orientation method="uniform" min="0,0,0" max="360,0,0" />
+        <entity quantity="0" max_trials="100">
+            <kilobot id="kb_b">
+                <controller config="kbc_b"/>
+                <dynamics2d friction="0.7" />
+            </kilobot>
+        </entity>
+    </distribute>
+
+    <distribute>
+        <position method="uniform" min="0.12,0.12,0" max="0.88,1.88,0" />
+        <orientation method="uniform" min="0,0,0" max="360,0,0" />
+        <entity quantity="0" max_trials="100">
+            <kilobot id="kb_w">
+                <controller config="kbc_w"/>
                 <dynamics2d friction="0.7" />
             </kilobot>
         </entity>
