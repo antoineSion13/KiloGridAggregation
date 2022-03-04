@@ -1,0 +1,4 @@
+We can see that a sampling time of 3s with Pleave = 0.5*e^-2.25n achieves symmetry breaking behavior with only non-informed robots.
+We also observe that if the experimentation time is longer (2h), the performance is better (see the histograms).
+
+After reducing the step size => 05 225 4s gives a good symmetry breaking ! with more time, the intermediate cases disappears.

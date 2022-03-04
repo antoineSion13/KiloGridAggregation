@@ -1,0 +1,17 @@
+GECCO paper:
+arena diameter = 12.9m => arena area = pi*r² = pi*(12.9/2)² = 130.6943 m²
+site diameter = 2.8m => site area = pi*r² = pi*(2.8/2)² = 6.1573 m²
+ratio = 6.1573/130.6943 = 0.0471
+Number of robots: 50
+Diameter of the foot-bot: 13 cm
+area of the foot-bot = pi*r² = pi*(13/2)² = 132.7283 cm² = 0.01327283 m²
+ratio of 50 foot-bots on the total area of the sites = 50 * 0.01327283 / (2 * 6.1573) = 0.0539
+
+
+Kilogrid:
+square arena area = (16 * 5 cm ) * (16 * 5 cm ) = 6400 cm²
+to get the same ratio => site area = 0.0471 * 6400 = 301.44 cm² => sqrt(301.44)² = 17.362 * 17.362 => between 3 and 4 cells of 5 by 5 cm (we choose 4)
+kilobot diameter = 3.3 cm
+area of the kilobot = pi*r² = pi*(3.3/2)² = 8.55 cm²
+same ratio for the number of robots : n = 2 * 400 * 0.0539/ 8.55 = 5.04 => only 5 robots... not doable
+lets try with 20
