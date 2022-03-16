@@ -122,9 +122,9 @@
     </box>
 
     <distribute>
-        <position method="uniform" min="0.12,0.12,0" max="0.88,0.88,0" />
+        <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="20" max_trials="100">
+        <entity quantity="34" max_trials="100">
             <kilobot id="kb_ni">
                 <controller config="kbc_ni"/>
                 <dynamics2d friction="0.7" />
@@ -133,9 +133,9 @@
     </distribute>
 
     <distribute>
-        <position method="uniform" min="0.12,0.12,0" max="0.88,0.88,0" />
+        <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="0" max_trials="100">
+        <entity quantity="8" max_trials="100">
             <kilobot id="kb_b">
                 <controller config="kbc_b"/>
                 <dynamics2d friction="0.7" />
@@ -144,9 +144,9 @@
     </distribute>
 
     <distribute>
-        <position method="uniform" min="0.12,0.12,0" max="0.88,0.88,0" />
+        <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="0" max_trials="100">
+        <entity quantity="8" max_trials="100">
             <kilobot id="kb_w">
                 <controller config="kbc_w"/>
                 <dynamics2d friction="0.7" />
@@ -181,7 +181,7 @@
 <!-- * Visualization  * -->
 <!-- ****************** -->
 
-<visualization>
+<!-- <visualization>
 <qt-opengl>
         <camera>
           <placements>
@@ -195,6 +195,6 @@
           </placements>
         </camera>
     </qt-opengl>
-</visualization>
+</visualization> -->
 
 </argos-configuration>

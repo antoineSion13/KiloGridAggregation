@@ -48,7 +48,7 @@ uint32_t timer_leave = 0;
 uint32_t timer_stuck_in_site = 0;
 uint32_t go_straight_duration = 32*5; //Going straight for 10 seconds
 double timer_turn_coefficient = 45; //coefficient use to convert from turning angle to time turning
-uint32_t pleave_sampling_duration = 32*4; //2 seconds sampling
+uint32_t pleave_sampling_duration = 32*10; //2 seconds sampling
 int robot_type = INFORMED_BLACK; //DEFINE HERE THE TYPE OF ROBOT
 
 bool broadcast_bool = false;
@@ -167,7 +167,7 @@ bool leave_site()
       n++;
     }
   }
-  double pleave = 0.5*exp(-2.25*n);
+  double pleave = 0.5*exp(-1.25*n);
   if(robot_type == INFORMED_WHITE || robot_type == INFORMED_BLACK)
   {
    pleave = 0;
@@ -264,7 +264,7 @@ void loop() {
       {
           move_straight(); //if yes, going straight for a little bit
           timer_turn = 0;
-          timer_go_straight = kilo_ticks + go_straight_duration/2;
+          timer_go_straight = kilo_ticks + go_straight_duration;
           entering_site = true; //bool to know that we are in the entering phase
       }
       else if (timer_go_straight > kilo_ticks) //while going straight, we check for obstacles
@@ -297,7 +297,7 @@ void loop() {
       {
         move_straight(); //go straight for 5 seconds
         timer_turn = 0;
-        timer_go_straight = kilo_ticks + go_straight_duration;
+        timer_go_straight = kilo_ticks + go_straight_duration/2;
       }
 			break;
 		case STAY:

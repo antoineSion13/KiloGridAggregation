@@ -4,7 +4,7 @@ import cv2 as cv
 
 # TODO Parameters to choose
 conf_file_name = 'aggregation_arena'  # name of the generated config file
-image_name = "setupHalf.png"  # name of the image file
+image_name = "Stripes.png"  # name of the image file
 
 im = cv.imread(image_name)
 

@@ -48,7 +48,7 @@ uint32_t timer_leave = 0;
 uint32_t timer_stuck_in_site = 0;
 uint32_t go_straight_duration = 32*5; //Going straight for 10 seconds
 double timer_turn_coefficient = 45; //coefficient use to convert from turning angle to time turning
-uint32_t pleave_sampling_duration = 32*4; //2 seconds sampling
+uint32_t pleave_sampling_duration = 32*10; //2 seconds sampling
 int robot_type = INFORMED_WHITE; //DEFINE HERE THE TYPE OF ROBOT
 
 bool broadcast_bool = false;
@@ -167,7 +167,7 @@ bool leave_site()
       n++;
     }
   }
-  double pleave = 0.5*exp(-2.25*n);
+  double pleave = 0.5*exp(-1.25*n);
   if(robot_type == INFORMED_WHITE || robot_type == INFORMED_BLACK)
   {
    pleave = 0;
