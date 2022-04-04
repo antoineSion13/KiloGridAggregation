@@ -10,7 +10,7 @@ imgsHeight = []
 
 for i in samplingTime:
     for j in secondParam:
-        tempImg = convert_from_path('05_' + j + '_' + i + '_' + proportions[0] +'/Convergence.pdf')
+        tempImg = convert_from_path('05_' + j + '_' + i + '_' + proportions[0] +'/RandomRun.pdf')
         tempWidth, tempHeight = tempImg[0].size
         imgsWidth.append(tempWidth)
         imgsHeight.append(tempHeight)
@@ -31,4 +31,4 @@ new_image.paste(imgs[4], (w, h))
 new_image.paste(imgs[5], (w*2, h))
 
 # save it
-new_image.save(proportions[0] + '_convergence.pdf')
+new_image.save(proportions[0] + '_randomRuns.pdf')

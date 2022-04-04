@@ -1,0 +1,22 @@
+For 50/50 case during 5 hours : 
+with 2s, the quantity of robots on both sites are oscillating around an equilibrium and never stabilizes. This explains the large variability shown in the histogram.
+=>maybe with 6s it could work and stabilize better (at 10 s it already does but 6s could work with 0/100 case)
+
+For 0/100 case during 5 hours : 
+with 2s, more experiment time really improves the results. However, it seems to cap around 40 robots on the black site with almost no robots on white. Maybe the site is too small for all the robots to enter !
+with 10s, it also improves a little bit but not enough => try with 6s !
+
+6s does not change anything much
+
+possible work plan for the experiment :
+illustrate the fact that a small sampling time (0.5*e^-2.25n;2s) results in large variations of the number the robots on the sites 
+=> 50/50 = continuous variations around an equilibrium
+=> 0/100 = large variations helps the positive feedback mechanism that puts the majority of of robots on one site
+
+illustrate the fact that a large sampling time (0.5*e^-2.25n;10s) results in small variations of the number the robots on the sites 
+=> 50/50 or 100/0 = small variations means that the system stays around the initially found configuration and it is less probable to evolve towards another one
+
+so it could be : 10 experiments of 1 hour with 50/50 and 10s sampling time
+		  10 experiments of 1 hour with 100/0 and 2s sampling time
+and we can explain that the dynamics of the system are quite slow, so with more time we have better results (see simulations performed with 5 hours)
+and normally we could still see the influence of informed robots even with slow dynamics

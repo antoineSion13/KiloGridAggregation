@@ -6,7 +6,7 @@
 <!-- ************************* -->
 <framework>
 <system threads="2" method="balance_quantity"/>
-<experiment length="3600"
+<experiment length="__experiment_time__"
     ticks_per_second="10" />
 </framework>
 
@@ -124,7 +124,7 @@
     <distribute>
         <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="34" max_trials="100">
+        <entity quantity="__non_informed_quantity__" max_trials="100">
             <kilobot id="kb_ni">
                 <controller config="kbc_ni"/>
                 <dynamics2d friction="0.7" />
@@ -135,7 +135,7 @@
     <distribute>
         <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="8" max_trials="100">
+        <entity quantity="__informed_black_quantity__" max_trials="100">
             <kilobot id="kb_b">
                 <controller config="kbc_b"/>
                 <dynamics2d friction="0.7" />
@@ -146,7 +146,7 @@
     <distribute>
         <position method="uniform" min="0.12,0.27,0" max="0.88,0.73,0" />
         <orientation method="uniform" min="0,0,0" max="360,0,0" />
-        <entity quantity="8" max_trials="100">
+        <entity quantity="__informed_white_quantity__" max_trials="100">
             <kilobot id="kb_w">
                 <controller config="kbc_w"/>
                 <dynamics2d friction="0.7" />
