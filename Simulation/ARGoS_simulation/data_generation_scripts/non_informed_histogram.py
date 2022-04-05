@@ -13,7 +13,7 @@ matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
 #2d histogram for non informed robots
 
-fileEntryPoint = "Results/"
+fileEntryPoint = "Results/time_18000_ni_30_b_14_w_6_samp_2_alpha_0.5_beta_2.25/"
 swarmSize = 50
 dataNonInformed = [[] for i in range(3)]
 
@@ -60,29 +60,33 @@ for i in range(1,51):
 print(np.shape((dataNonInformedTime)))
 
 #plot a random run
-for i in range(0,50):
-	fig, axs = plt.subplots()
+# for i in range(0,50):
+# 	fig, axs = plt.subplots()
+#
+# 	# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][0], '--', color = "black", label = "25%")
+# 	axs.plot(range(0,180000), dataNonInformedTime[0][i], color = "black", label = "median")
+# 	# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][2], '--', color = "black", label = "75%")
+# 	# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][0], '--', color = "white")
+# 	axs.plot(range(0,180000), dataNonInformedTime[1][i], color = "white")
+# 	# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][2], '--', color = "white")
+#
+# 	axs.set_xlim(0,180000)
+# 	axs.set_ylim(0,50)
+# 	axs.set_facecolor('grey')
+# 	axs.set_xlabel("timestep")
+# 	plt.show()
 
-	# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][0], '--', color = "black", label = "25%")
-	axs.plot(range(0,180000), dataNonInformedTime[0][i], color = "black", label = "median")
-	# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][2], '--', color = "black", label = "75%")
-	# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][0], '--', color = "white")
-	axs.plot(range(0,180000), dataNonInformedTime[1][i], color = "white")
-	# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][2], '--', color = "white")
-
-	axs.set_xlim(0,180000)
-	axs.set_ylim(0,50)
-	axs.set_facecolor('grey')
-	axs.set_xlabel("timestep")
-	plt.show()
-
-dataNonInformedTimePercentile = [[[] for i in range(180000)] for j in range(3)]
+dataNonInformedTimePercentile25 = [[[] for i in range(180000)] for j in range(3)]
+dataNonInformedTimePercentile50 = [[[] for i in range(180000)] for j in range(3)]
+dataNonInformedTimePercentile75 = [[[] for i in range(180000)] for j in range(3)]
 
 for i in range(3):
 	transposed = np.transpose(dataNonInformedTime[i])
 	print(np.shape(transposed))
 	for j in range(180000):
-		dataNonInformedTimePercentile[i][j] = np.median(transposed[j])
+		dataNonInformedTimePercentile25[i][j] = np.percentile(transposed[j],25)
+		dataNonInformedTimePercentile50[i][j] = np.percentile(transposed[j],50)
+		dataNonInformedTimePercentile75[i][j] = np.percentile(transposed[j],75)
 	# dataNonInformedTimePercentile[i] = np.transpose(dataNonInformedTimePercentile[i])
 
 # print(dataNonInformedTimePercentile[0])
@@ -90,12 +94,12 @@ for i in range(3):
 
 fig, axs = plt.subplots()
 
-# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][0], '--', color = "black", label = "25%")
-axs.plot(range(0,180000), dataNonInformedTimePercentile[0], color = "black", label = "median")
-# axs.plot(range(0,36000), dataNonInformedTimePercentile[0][2], '--', color = "black", label = "75%")
-# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][0], '--', color = "white")
-axs.plot(range(0,180000), dataNonInformedTimePercentile[1], color = "white")
-# axs.plot(range(0,36000), dataNonInformedTimePercentile[1][2], '--', color = "white")
+axs.plot(range(0,180000), dataNonInformedTimePercentile25[0], '--', linewidth = 0.5, color = "black", label = "25%")
+axs.plot(range(0,180000), dataNonInformedTimePercentile50[0], color = "black", label = "median")
+axs.plot(range(0,180000), dataNonInformedTimePercentile75[0], '--',linewidth = 0.5, color = "black", label = "75%")
+axs.plot(range(0,180000), dataNonInformedTimePercentile25[1], '--',linewidth = 0.5, color = "white", label = "25%")
+axs.plot(range(0,180000), dataNonInformedTimePercentile50[1], color = "white", label = "median")
+axs.plot(range(0,180000), dataNonInformedTimePercentile75[1], '--',linewidth = 0.5, color = "white", label = "75%")
 
 axs.set_xlim(0,180000)
 axs.set_ylim(0,50)
