@@ -25,6 +25,7 @@ run(){
 	sampling_time="$5"
 	alpha_param="$6"
 	beta_param="$7"
+	informed_weight="$8"
 
 	cp $black_informed_file $black_informed_file_mod
 	cp $white_informed_file $white_informed_file_mod
@@ -39,8 +40,11 @@ run(){
 	sed -i "s|__beta_param__|$beta_param|g" $black_informed_file_mod
 	sed -i "s|__beta_param__|$beta_param|g" $white_informed_file_mod
 	sed -i "s|__beta_param__|$beta_param|g" $non_informed_file_mod
+	sed -i "s|__informed_weight__|$informed_weight|g" $black_informed_file_mod
+	sed -i "s|__informed_weight__|$informed_weight|g" $white_informed_file_mod
+	sed -i "s|__informed_weight__|$informed_weight|g" $non_informed_file_mod
 
-	results_folder=time_"$experiment_time"_ni_"$non_informed_quantity"_b_"$informed_black_quantity"_w_"$informed_white_quantity"_samp_"$sampling_time"_alpha_"$alpha_param"_beta_"$beta_param"
+	results_folder=time_"$experiment_time"_ni_"$non_informed_quantity"_b_"$informed_black_quantity"_w_"$informed_white_quantity"_samp_"$sampling_time"_alpha_"$alpha_param"_beta_"$beta_param"_weight_"$informed_weight"
 	#build the project
 	rm -rf build
 	mkdir build
@@ -60,12 +64,6 @@ run(){
 }
 
 #here run what you want !
-#100/0
-run 18000 30 20 0 2 0.5 2.25
-run 18000 30 20 0 10 0.5 2.25
-#70/30
-run 18000 30 14 6 2 0.5 2.25
-run 18000 30 14 6 10 0.5 2.25
-#50/50
-run 18000 30 10 10 2 0.5 2.25
-run 18000 30 10 10 10 0.5 2.25
+run 18000 30 20 0 1 0.5 2.25 1
+run 18000 30 10 10 1 0.5 2.25 1
+run 18000 30 14 6 1 0.5 2.25 1

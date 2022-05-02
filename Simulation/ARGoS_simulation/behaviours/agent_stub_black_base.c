@@ -41,6 +41,11 @@ typedef enum{
     true = 1,
 } bool;
 
+struct broadcasting_robot_info{
+  uint16_t id;
+  int weight;
+};
+
 int state = 0;
 uint32_t timer_go_straight = 0;
 uint32_t timer_turn = 0;
@@ -61,7 +66,7 @@ bool obstacle = false;
 message_t msg; //msg to send
 
 int buffer_size = 25;
-uint16_t broadcasting_robots[25] = {0};
+struct broadcasting_robot_info broadcasting_robots[25];
 
 //Check if a robot is in its appropriate site where it must stay
 bool is_in_site()
@@ -164,9 +169,9 @@ bool leave_site()
   int n = 0;
   for(int i = 0; i < buffer_size; ++i)
   {
-    if(broadcasting_robots[i] != 0)
+    if(broadcasting_robots[i].id != 0)
     {
-      n++;
+      n = n + broadcasting_robots[i].weight;
     }
   }
   double pleave = alpha*exp(-beta*n);
@@ -177,7 +182,8 @@ bool leave_site()
   //clear the buffer
   for(int i = 0; i < buffer_size; ++i)
   {
-    broadcasting_robots[i] = 0;
+    broadcasting_robots[i].id = 0;
+    broadcasting_robots[i].weight = 0;
   }
   //test the proba
   double random_number = g_ran_uniform();
@@ -205,12 +211,10 @@ message_t *message_tx()
 {
   if(broadcast_bool == true)
   {
-    set_color(RGB(1, 1, 1));
     return &msg;
   }
   else
   {
-    set_color(RGB(0, 0, 0));
     return NULL;
   }
 }
@@ -226,18 +230,20 @@ void message_rx(message_t *message, distance_measurement_t *distance)
   if (message->type == 2) //type 2 for message received from the Kilobots
 	{
     uint16_t id = message->data[0];
+    int weight = message->data[1];
     for(int i = 0; i < buffer_size; ++i)
     {
-      if(broadcasting_robots[i] == id)
+      if(broadcasting_robots[i].id == id)
       {
         return;
       }
     }
     for(int i = 0; i < buffer_size; ++i)
     {
-      if(broadcasting_robots[i] == 0)
+      if(broadcasting_robots[i].id == 0)
       {
-        broadcasting_robots[i] = id;
+        broadcasting_robots[i].id = id;
+        broadcasting_robots[i].weight = weight;
         return;
       }
     }
@@ -246,10 +252,23 @@ void message_rx(message_t *message, distance_measurement_t *distance)
 }
 
 void setup() {
+  for(int i = 0; i < buffer_size; ++i)
+  {
+      broadcasting_robots[i].id = 0;
+      broadcasting_robots[i].weight = 0;
+  }
 	// kilob_tracking_init(); //no need for kilob_messaging_init, it calls it with this
 	// init_motors();
   msg.type = 2;
   msg.data[0] = kilo_uid;
+  if(robot_type == INFORMED_BLACK || robot_type == INFORMED_WHITE)
+  {
+    msg.data[1] = __informed_weight__;
+  }
+  else
+  {
+    msg.data[1] = 1;
+  }
   msg.crc = message_crc(&msg);
   stop_broadcast();
 
@@ -258,15 +277,20 @@ void setup() {
 }
 
 void loop() {
+  if(kilo_ticks % (32*60) == 0)
+  {
+    pleave_sampling_duration += 4;
+  }
   // debug_info_set(kilo_ticks_debug, kilo_ticks);
   // debug_info_set(timer_go_straight_debug, timer_go_straight);
 	switch (state) {
 		case RANDOM_WALK:
+    set_color(RGB(0, 0, 0));
 		if(is_in_site() && !entering_site) //Check if a robot has entered the site where he needs to stay
       {
           move_straight(); //if yes, going straight for a little bit
           timer_turn = 0;
-          timer_go_straight = kilo_ticks + go_straight_duration;
+          timer_go_straight = kilo_ticks + 2*go_straight_duration;
           entering_site = true; //bool to know that we are in the entering phase
       }
       else if (timer_go_straight > kilo_ticks) //while going straight, we check for obstacles
@@ -299,10 +323,11 @@ void loop() {
       {
         move_straight(); //go straight for 5 seconds
         timer_turn = 0;
-        timer_go_straight = kilo_ticks + go_straight_duration/2;
+        timer_go_straight = kilo_ticks + 2*go_straight_duration;
       }
 			break;
 		case STAY:
+    set_color(RGB(3, 3, 3));
       broadcast();
       if(kilo_ticks >= timer_leave) //if it is time to sample the probability to leave
       {
@@ -322,6 +347,7 @@ void loop() {
       }
 			break;
 		case LEAVE:
+    set_color(RGB(0, 3, 0));
       stop_broadcast();
       if(!is_in_site()) //checking if we are out of the site
       {
@@ -340,6 +366,7 @@ void loop() {
       }
 			break;
     case OBSTACLE_AVOIDANCE:
+    set_color(RGB(3, 0, 0));
       if(timer_turn == 0 && timer_go_straight == 0)
       {
         turn_left();

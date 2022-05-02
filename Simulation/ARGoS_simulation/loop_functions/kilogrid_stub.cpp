@@ -204,7 +204,7 @@ CColor CKilogrid::GetFloorColor(const CVector2 &vec_position_on_plane) {
     if(floor_color == 1){
         return CColor::RED;
     }else if(floor_color == 2){
-        return CColor::GREEN;
+        return CColor::BLUE;
     }else if(floor_color == 3){
         return CColor::WHITE;
     }else if(floor_color == 4){
