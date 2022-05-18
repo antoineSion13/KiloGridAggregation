@@ -7,7 +7,8 @@ import numpy as np
 import scipy.linalg
 import random as rd
 import seaborn as sns
-sns.set_theme()
+import matplotlib.ticker as ticker
+# sns.set_theme()
 import pandas as pd
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
@@ -92,35 +93,49 @@ for i in range(3):
 
 # print(dataNonInformedTimePercentile[0])
 
-rangeXTicks = range(0,20,2)
+for i in range(3):
+	dataNonInformedTimePercentile25[i] = dataNonInformedTimePercentile25[i][0::100]
+	dataNonInformedTimePercentile50[i] = dataNonInformedTimePercentile50[i][0::100]
+	dataNonInformedTimePercentile75[i] = dataNonInformedTimePercentile75[i][0::100]
+
 rangeXTicksString = []
 
-for i in rangeXTicks:
-	if i == 0:
-		rangeXTicksString.append((str(i)))
-	else:
-		rangeXTicksString.append((str(i)+'$e3$'))
+for i in range(6):
+	rangeXTicksString.append((str(i)))
 
 
 fig, axs = plt.subplots()
 
-plt.xticks(fontsize=40)
+
+fig.set_figheight(10)
+fig.set_figwidth(20)
+
+axs.grid(False)
+plt.xticks(np.arange(0, 180000+36000, 36000), fontsize=40)
 plt.yticks(fontsize=40)
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile25[0], '--', linewidth = 0.5, color = "black", label = "25%")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile50[0], color = "black", label = "median")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile75[0], '--',linewidth = 0.5, color = "black", label = "75%")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile25[1], '--',linewidth = 0.5, color = "white", label = "25%")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile50[1], color = "white", label = "median")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile75[1], '--',linewidth = 0.5, color = "white", label = "75%")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile25[2], '--',linewidth = 0.5, color = "blue", label = "25%")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile50[2], color = "blue", label = "median")
-axs.plot(range(0,experimentTime), dataNonInformedTimePercentile75[2], '--',linewidth = 0.5, color = "blue", label = "75%")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile25[2], linewidth = 0.5, color = "cornflowerblue", label = "25%")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile50[2], color = "cornflowerblue", label = "median")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile75[2], linewidth = 0.5, color = "cornflowerblue", label = "75%")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile25[2], dataNonInformedTimePercentile50[2], alpha=0.2, color = "cornflowerblue")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile50[2], dataNonInformedTimePercentile75[2], alpha=0.2, color = "cornflowerblue")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile25[0], linewidth = 0.5, color = "black", label = "25%")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile50[0], color = "black", label = "median")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile75[0], linewidth = 0.5, color = "black", label = "75%")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile25[0], dataNonInformedTimePercentile50[0], alpha=0.2, color = "black")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile50[0], dataNonInformedTimePercentile75[0], alpha=0.2, color = "black")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile25[1], linewidth = 0.5, color = "grey", label = "25%")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile50[1], color = "grey", label = "median")
+axs.plot(range(0,experimentTime,100), dataNonInformedTimePercentile75[1], linewidth = 0.5, color = "grey", label = "75%")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile25[1], dataNonInformedTimePercentile50[1], alpha=0.2, color = "grey")
+axs.fill_between(range(0,experimentTime,100), dataNonInformedTimePercentile50[1], dataNonInformedTimePercentile75[1], alpha=0.2, color = "grey")
+
 
 axs.set_xlim(0,int(experimentTime))
 axs.set_xticklabels(rangeXTicksString)
 axs.set_ylim(0,50)
-axs.set_facecolor('grey')
-axs.set_ylabel("N", rotation = 0, fontsize=50)
-axs.yaxis.set_label_coords(-.075, .5)
-axs.set_xlabel("Time [s]", fontsize=50)
+# axs.set_facecolor('white')
+axs.set_ylabel("Number of robots", rotation = 90, fontsize=50)
+# axs.yaxis.set_label_coords(0, .5)
+axs.set_xlabel("Time [h]", fontsize=50)
+plt.tight_layout()
 plt.show()
